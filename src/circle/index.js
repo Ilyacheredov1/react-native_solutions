@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, StyleSheet, View, ScrollView, Button } from 'react-native';
 //import CircularProgress from './CircularProgress';
 import AnimatedCircularProgress from './AnimatedCircularProgress'
 
@@ -8,9 +8,9 @@ import AnimatedCircularProgress from './AnimatedCircularProgress'
 export default () => {
     return (
         <View style={{ margin: 25 }}>
+
             <Text style={{ fontSize: 30, color: 'black' }}>Circles</Text>
             <ScrollView>
-
 
                 <AnimatedCircularProgress
                     size={100}
