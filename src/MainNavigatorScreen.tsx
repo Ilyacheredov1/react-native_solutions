@@ -1,28 +1,44 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { ArrayScreens } from '../App'
 
 const styles: any = {
     wrapper: {
         backgroundColor: '#000',
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        margin: 20
     },
     button: {
-        color: '#fff'
+        color: '#fff',
+        margin: 15,
+        fontSize: 20,
+
     }
 }
 
+
+
 //@ts-ignore
 function MainNavigatorScreen({ navigation }) {
+
     return (
-        <View style={styles.wrapper} >
+        <ScrollView style={{ flex: 1, backgroundColor: '#000' }} >
+            <View style={styles.wrapper}>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Test1')} >
-                <Text style={styles.button} >Test 2</Text>
-            </TouchableOpacity>
+                {
+                    (ArrayScreens || []).map((it, i) => {
+                        return (
+                            <TouchableOpacity onPress={() => navigation.navigate(it)} >
+                                <Text style={styles.button} >{it}</Text>
+                            </TouchableOpacity>
+                        )
+                    })
+                }
 
-        </View>
+            </View>
+        </ScrollView >
     )
 }
 
