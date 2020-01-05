@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "layout_examples.app"
-               BlueprintName = "layout_examples"
-               ReferencedContainer = "container:layout_examples.xcodeproj">
+               BuildableName = "RNLayoutSoltion.app"
+               BlueprintName = "RNLayoutSoltion"
+               ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "layout_examplesTests.xctest"
-               BlueprintName = "layout_examplesTests"
-               ReferencedContainer = "container:layout_examples.xcodeproj">
+               BuildableName = "RNLayoutSoltionTests.xctest"
+               BlueprintName = "RNLayoutSoltionTests"
+               ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "layout_examplesTests.xctest"
-               BlueprintName = "layout_examplesTests"
-               ReferencedContainer = "container:layout_examples.xcodeproj">
+               BuildableName = "RNLayoutSoltionTests.xctest"
+               BlueprintName = "RNLayoutSoltionTests"
+               ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "layout_examples.app"
-            BlueprintName = "layout_examples"
-            ReferencedContainer = "container:layout_examples.xcodeproj">
+            BuildableName = "RNLayoutSoltion.app"
+            BlueprintName = "RNLayoutSoltion"
+            ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "layout_examples.app"
-            BlueprintName = "layout_examples"
-            ReferencedContainer = "container:layout_examples.xcodeproj">
+            BuildableName = "RNLayoutSoltion.app"
+            BlueprintName = "RNLayoutSoltion"
+            ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "layout_examples.app"
-            BlueprintName = "layout_examples"
-            ReferencedContainer = "container:layout_examples.xcodeproj">
+            BuildableName = "RNLayoutSoltion.app"
+            BlueprintName = "RNLayoutSoltion"
+            ReferencedContainer = "container:RNLayoutSoltion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

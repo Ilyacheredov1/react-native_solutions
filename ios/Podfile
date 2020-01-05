@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'layout_examples' do
-  # Pods for layout_examples
+target 'RNLayoutSoltion' do
+  # Pods for RNLayoutSoltion
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +34,9 @@ target 'layout_examples' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'layout_examplesTests' do
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  target 'RNLayoutSoltionTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +44,10 @@ target 'layout_examples' do
   use_native_modules!
 end
 
-target 'layout_examples-tvOS' do
-  # Pods for layout_examples-tvOS
+target 'RNLayoutSoltion-tvOS' do
+  # Pods for RNLayoutSoltion-tvOS
 
-  target 'layout_examples-tvOSTests' do
+  target 'RNLayoutSoltion-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
