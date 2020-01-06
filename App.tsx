@@ -3,10 +3,10 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 // import 'react-native-gesture-handler';
 
 import MainNavigatorScreen from './src/MainNavigatorScreen'
-import SpotifyScrollable from './src/SpotifyScrollable/SpotifyScrollable';
+import MusicPlayer from './src/MusicPlayer/MusicPlayer'
 
 export const ArrayScreens: string[] = [
-  'SpotifyScrollable',
+  'MusicPlayer',
 ]
 
 
@@ -14,7 +14,7 @@ const AppNavigator = createSwitchNavigator(
   {
     MainNavigatorScreen,
 
-    SpotifyScrollable
+    MusicPlayer
   },
   {
     initialRouteName: 'MainNavigatorScreen',
