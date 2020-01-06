@@ -1,4 +1,4 @@
-import React, { Component, useState, FunctionComponent } from 'react'
+import React, { Component, useState } from 'react'
 import { Text, View, StyleSheet, SafeAreaView, Image, StatusBar, TouchableOpacity, Dimensions } from 'react-native'
 // @ts-ignore
 import Slider from 'react-native-slider'
@@ -15,7 +15,7 @@ interface IProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>
 }
 
-const MusicPlayer: FunctionComponent<IProps> = ({ navigation }) => {
+const MusicPlayer: React.FC<IProps> = ({ navigation }) => {
 
     const [TrackLength, setTrackLength] = useState<number>(252);
     const [TimeElapsed, setTimeElapsed] = useState<string>("0:00");
