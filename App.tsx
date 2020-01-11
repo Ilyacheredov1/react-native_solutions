@@ -3,10 +3,13 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 // import 'react-native-gesture-handler';
 
 import MainNavigatorScreen from './src/MainNavigatorScreen'
+
 import MusicPlayer from './src/MusicPlayer/MusicPlayer'
+import Accordion from './src/AnimatedList/Accordion'
 
 export const ArrayScreens: string[] = [
   'MusicPlayer',
+  'Accordion',
 ]
 
 
@@ -14,7 +17,8 @@ const AppNavigator = createSwitchNavigator(
   {
     MainNavigatorScreen,
 
-    MusicPlayer
+    MusicPlayer,
+    Accordion
   },
   {
     initialRouteName: 'MainNavigatorScreen',
