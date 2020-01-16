@@ -4,11 +4,8 @@ import { NavigationParams, NavigationScreenProp, NavigationState, } from "react-
 import { ArrayScreens } from '../App'
 
 
-
-
 interface IProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>
-
 }
 
 const MainNavigatorScreen: React.FC<IProps> = ({ navigation }) => {
@@ -19,9 +16,9 @@ const MainNavigatorScreen: React.FC<IProps> = ({ navigation }) => {
             <View style={styles.wrapper}>
 
                 {
-                    (ArrayScreens || []).map((it, i) => (
-                        <TouchableOpacity key={it} onPress={() => navigation.navigate(it)} >
-                            <Text style={styles.button}>{it}</Text>
+                    (ArrayScreens || []).map((item, i) => (
+                        <TouchableOpacity key={item} onPress={() => navigation.navigate(item)} >
+                            <Text style={styles.button}>{item}</Text>
                         </TouchableOpacity>
                     ))
                 }
@@ -46,7 +43,6 @@ const styles: any = {
         fontSize: 20,
     }
 }
-
 
 
 
