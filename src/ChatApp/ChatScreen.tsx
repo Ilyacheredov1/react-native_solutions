@@ -36,9 +36,8 @@ const ChatScreen: React.FC<IProps> = ({ navigation }) => {
     ]);
 
 
-    const onSend = (newMessages = []) => {
-        setMessages(GiftedChat.append(messages, newMessages))
-    }
+    const onSend = (newMessages = []) => setMessages(GiftedChat.append(messages, newMessages))
+
 
     return (
         <GiftedChat
