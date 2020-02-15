@@ -27,7 +27,7 @@ const AppNavigator = createStackNavigator(
     Animations
   },
   {
-    initialRouteName: 'Animations',
+    initialRouteName: 'MainNavigatorScreen',
     headerMode: 'none'
   }
 );
