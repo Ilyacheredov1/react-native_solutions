@@ -10,6 +10,8 @@ import ColorBackground from '../ColorBackground'
 import Rotation from '../Rotation'
 import Easing from '../Easing'
 import Spring from '../Spring'
+import Event from '../Event'
+import Decay from '../Decay/Decay_short_code'
 
 
 export const ArrayScreens: string[] = [
@@ -21,8 +23,9 @@ export const ArrayScreens: string[] = [
     'Rotation',
     'Easing',
     'Spring',
-]
-
+    'Event',
+    'Decay',
+];
 
 const AppNavigator = createStackNavigator(
     {
@@ -36,6 +39,8 @@ const AppNavigator = createStackNavigator(
         Rotation,
         Easing,
         Spring,
+        Event,
+        Decay,
     },
     {
         initialRouteName: 'Navigator',
