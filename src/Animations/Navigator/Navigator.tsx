@@ -12,7 +12,9 @@ import Easing from '../Easing'
 import Spring from '../Spring'
 import Event from '../Event'
 import Decay from '../Decay/Decay_short_code'
-
+import Add from '../Add';
+import Divide_Multiply from '../Divide_Multiply'
+import Parralel_Sequence from '../Parralel_Sequence'
 
 export const ArrayScreens: string[] = [
     'SimpleAnimation',
@@ -25,6 +27,9 @@ export const ArrayScreens: string[] = [
     'Spring',
     'Event',
     'Decay',
+    'Add',
+    'Divide_Multiply',
+    'Parralel_Sequence',
 ];
 
 const AppNavigator = createStackNavigator(
@@ -41,6 +46,9 @@ const AppNavigator = createStackNavigator(
         Spring,
         Event,
         Decay,
+        Add,
+        Divide_Multiply,
+        Parralel_Sequence,
     },
     {
         initialRouteName: 'Navigator',

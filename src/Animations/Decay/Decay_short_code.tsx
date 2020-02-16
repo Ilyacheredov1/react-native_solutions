@@ -1,4 +1,4 @@
-import React, { useState, useEffect, version } from 'react'
+import React, { useState, } from 'react'
 import { ScrollView, View, Text, StyleSheet, Animated, ViewStyle, PanResponder, PanResponderStatic, PanResponderInstance } from 'react-native';
 
 const Decay = () => {
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#000',
     },
     box: {
         width: 50,
