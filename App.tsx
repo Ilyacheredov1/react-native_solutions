@@ -8,12 +8,14 @@ import MusicPlayer from './src/MusicPlayer/MusicPlayer'
 import Accordion from './src/AnimatedList/Accordion'
 import ChatApp from './src/ChatApp/ChatScreen'
 import Animations from './src/Animations/Navigator/Navigator'
+import Calendars from './src/Calendars/Navigator/index';
 
 export const ArrayScreens: string[] = [
   'MusicPlayer',
   'Accordion',
   'ChatApp',
-  'Animations'
+  'Animations',
+  'Calendars',
 ]
 
 
@@ -24,7 +26,8 @@ const AppNavigator = createStackNavigator(
     MusicPlayer,
     Accordion,
     ChatApp,
-    Animations
+    Animations,
+    Calendars,
   },
   {
     initialRouteName: 'MainNavigatorScreen',

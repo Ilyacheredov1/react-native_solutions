@@ -24,8 +24,6 @@ const Animating_properties = () => {
         }
     ]);
 
-    const arr: ReadonlyArray<string> = ['sadas']
-
     return (
         <View style={styles.container}>
             <ScrollView
