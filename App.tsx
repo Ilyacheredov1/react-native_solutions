@@ -18,6 +18,8 @@ export const ArrayScreens: string[] = [
   'ChatApp',
   'Animations',
   'Calendars',
+  'TestFunction',
+  'TestClass',
 ]
 
 
@@ -30,6 +32,7 @@ const AppNavigator = createStackNavigator(
     ChatApp,
     Animations,
     Calendars,
+    TestFunction,
   },
   {
     initialRouteName: 'MainNavigatorScreen',
