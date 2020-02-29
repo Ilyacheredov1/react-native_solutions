@@ -8,6 +8,7 @@ import HorizontalCalendarList from '../horizontalCalendarList';
 // import ExpandableCalendar from '../expandableCalendar';
 
 
+
 // export function registerScreens() {
 //   Navigation.registerComponent('Menu', () => MenuScreen);
 //   Navigation.registerComponent('Calendars', () => CalendarsScreen);
@@ -41,7 +42,6 @@ const AppNavigator = createStackNavigator(
         CalendarsList,
         HorizontalCalendarList,
         // ExpandableCalendar,
-
     },
     {
         initialRouteName: 'Navigator',
