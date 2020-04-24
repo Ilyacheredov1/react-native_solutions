@@ -14,10 +14,6 @@ const TestFunction: React.FC<Props> = () => {
 
     useEffect(() => {
         ; (async () => {
-            interface IResponce {
-                test: string
-            }
-
             try {
                 const response = await axios.get('https://raw.githubusercontent.com/Ilyacheredov1/react-native_solutions/master/src/Test/FetchedDatas.json')
                 console.log(response);
