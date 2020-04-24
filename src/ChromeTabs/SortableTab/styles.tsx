@@ -1,7 +1,7 @@
-import {StyleSheet, ViewStyle,} from "react-native";
+import {Animated, StyleSheet, ViewStyle,} from "react-native";
 
 interface Styles {
-    wrapper: ViewStyle
+    wrapper: any
 }
 
 const styles = (): Styles => ({
