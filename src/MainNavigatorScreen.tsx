@@ -29,7 +29,7 @@ const MainNavigatorScreen: React.FC<IProps> = ({navigation}) => {
 }
 
 
-const styles = {
+const styles: any = {
     wrapper: {
         backgroundColor: '#000',
         flex: 1,
