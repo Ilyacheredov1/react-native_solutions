@@ -10,11 +10,11 @@ interface Props {
 
 }
 
-const index: React.FC<Props> = () => {
+const Tab: React.FC<Props> = () => {
     return (
-        <View>
+        <View style={styles.container}>
         </View>
     )
 };
 
-export default React.memo(index);
+export default React.memo(Tab);

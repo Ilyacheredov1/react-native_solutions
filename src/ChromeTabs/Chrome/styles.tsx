@@ -8,6 +8,7 @@ const styles = (): Styles => ({
     wrapper: {
         flex: 1,
         backgroundColor: '#1c1d1e',
+        position: "relative"
     }
 
 });

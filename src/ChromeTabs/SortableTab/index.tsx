@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import styles from './styles'
+import Tab from "../Tab";
 
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 const SortableTab: React.FC<Props> = () => {
     return (
         <View style={styles.wrapper}>
+            <Tab />
         </View>
     )
 };
