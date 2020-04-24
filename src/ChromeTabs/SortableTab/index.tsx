@@ -5,7 +5,7 @@ import Tab from "../Tab";
 import {IOffsets, TAB_SIZE} from "../helpres";
 import Animated, {Easing, neq, not} from 'react-native-reanimated';
 import {PanGestureHandler, State} from "react-native-gesture-handler";
-import {panGestureHandler} from "react-native-redash";
+import {  moving, panGestureHandler, withSpringTransition} from "react-native-redash";
 
 const {
     Value,
@@ -15,51 +15,29 @@ const {
     block,
     set,
     useCode,
-    floor,
     multiply,
     divide,
-    max,
     and,
-    Clock,
-    timing,
-    clockRunning,
-    stopClock,
-    startClock,
+    round
 } = Animated;
 
-interface IWithSnap {
-    value: Animated.Value<number>
-    offset: Animated.Value<number>
-    state: Animated.Value<State>
-}
-
-const withSnap = ({value, offset, state: gestureState}: IWithSnap) => {
-    const clock = new Clock();
-    const state = {
-        position: new Value(0),
-        finished: new Value(0),
-        time: new Value(0),
-        frameTime: new Value(0)
-    }
-    const config = {
-        toValue: new Value(0),
-        duration: 250,
-        easing: Easing.linear
-    }
-    const position = new Value(0)
+export const withOffset = (
+    {
+        offset,
+        value,
+        state: gestureState
+    }: {
+        offset: Animated.Adaptable<number>;
+        value: Animated.Value<number>;
+        state: Animated.Value<State>;
+    }) => {
     const safeOffset = new Value(0);
-    return block([
-        cond(eq(gestureState, State.ACTIVE), set(position, value)),
-        cond(and(neq(gestureState, State.ACTIVE), not(clockRunning(clock))), [
-            set(config.toValue, offset),
-            set(state.position, add(safeOffset, position)),
-        ]),
-        cond(eq(gestureState, State.ACTIVE), add(safeOffset, value), [
-            set(safeOffset, offset),
-            safeOffset
-        ])
-    ]);
-}
+    return cond(
+        eq(gestureState, State.ACTIVE),
+        add(safeOffset, value),
+        set(safeOffset, offset)
+    );
+};
 
 interface Props {
     item: number,
@@ -67,25 +45,30 @@ interface Props {
 }
 
 const SortableTab: React.FC<Props> = ({item, offsets}) => {
-
-    const {gestureHandler, state, translationX, translationY} = panGestureHandler();
-    const zIndex = cond(eq(state, State.ACTIVE), 10, 1)
+    const {
+        gestureHandler,
+        state,
+        translationX,
+        velocityX,
+        translationY,
+        velocityY
+    } = panGestureHandler();
     const currentOffset = offsets[item];
-
-    const translateX = withSnap({
+    const x = withOffset({
         value: translationX,
         offset: currentOffset.x,
         state
     });
-    const translateY = withSnap({
+    const y = withOffset({
         value: translationY,
         offset: currentOffset.y,
         state
     });
-
-    const offsetX = multiply(max(floor(divide(translationX, TAB_SIZE)), 0), TAB_SIZE);
-    const offsetY = multiply(max(floor(divide(translationY, TAB_SIZE)), 0), TAB_SIZE);
-
+    const zIndex = cond(eq(state, State.ACTIVE), 200, cond(moving(y), 100, 1));
+    const offsetX = multiply(round(divide(x, TAB_SIZE)), TAB_SIZE);
+    const offsetY = multiply(round(divide(y, TAB_SIZE)), TAB_SIZE);
+    const translateX = withSpringTransition(x, {}, velocityX, state);
+    const translateY = withSpringTransition(y, {}, velocityY, state);
     useCode(
         () =>
             block(
