@@ -1,14 +1,14 @@
 import React from 'react'
-import {View, Text, TouchableOpacity, ScrollView, StatusBar, FlatList} from 'react-native'
-import {NavigationParams, NavigationScreenProp, NavigationState,} from "react-navigation";
-import {ArrayScreens} from '../App'
+import { View, Text, TouchableOpacity, ScrollView, StatusBar, FlatList } from 'react-native'
+import { NavigationParams, NavigationScreenProp, NavigationState, } from "react-navigation";
+import { ArrayScreens } from '../App'
 
 
 interface IProps {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>
 }
 
-const MainNavigatorScreen: React.FC<IProps> = ({navigation}) => {
+const MainNavigatorScreen: React.FC<IProps> = ({ navigation }) => {
 
     const renderItem = (item: string) => (
         <TouchableOpacity onPress={() => navigation.navigate(item)}>
@@ -18,10 +18,10 @@ const MainNavigatorScreen: React.FC<IProps> = ({navigation}) => {
 
     return (
         <View style={styles.wrapper}>
-            <StatusBar backgroundColor="#000" barStyle="light-content"/>
+            <StatusBar backgroundColor="#000" barStyle="light-content" />
             <FlatList
                 data={ArrayScreens}
-                renderItem={({item}) => renderItem(item)}
+                renderItem={({ item }) => renderItem(item)}
                 keyExtractor={(item) => item}
             />
         </View>
