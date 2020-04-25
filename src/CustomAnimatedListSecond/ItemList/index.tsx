@@ -34,7 +34,7 @@ const ItemList: React.FC<Props> = (
 
     }, [topOffsetProp]);
 
-    return index === 0 ? null : (
+    return  (
         <Animated.View style={{
             position: 'absolute',
             transform: [{ translateY: topOffset }]

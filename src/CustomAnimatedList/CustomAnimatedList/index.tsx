@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ScrollView } from 'react-native'
+import { SafeAreaView, ScrollView } from 'react-native'
 import styles from './styles'
 import ItemList from "../ItemList";
 
@@ -37,19 +37,22 @@ const CustomAnimatedList: React.FC<Props> = () => {
 
     return (
         <ScrollView style={styles.wrapper}>
-            {
-                list.map(({ index, topOffset }) => (
-                    <ItemList
-                        key={index}
-                        index={index}
-                        topOffsetProp={topOffset}
-                        handleDelete={(index: number) => handleDelete(index)}
-                    />
-                ))
-            }
+            <SafeAreaView>
+                {
+                    list.map(({ index, topOffset }) => (
+                        <ItemList
+                            key={index}
+                            index={index}
+                            topOffsetProp={topOffset}
+                            handleDelete={(index: number) => handleDelete(index)}
+                        />
+                    ))
+                }
+            </SafeAreaView>
+
         </ScrollView>
     )
 };
 
-export default CustomAnimatedList;
+export default React.memo(CustomAnimatedList);
 
