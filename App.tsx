@@ -9,6 +9,7 @@ import Animations from './src/Animations/Navigator/Navigator'
 import Calendars from './src/Calendars/Navigator/index';
 import Chrome from "./src/ChromeTabs/Chrome";
 import AnimatedListByRemove from "./src/AnimatedListByRemove/AnimatedListByRemove";
+import CustomAnimatedList from "./src/CustomAnimatedList/CustomAnimatedList";
 
 export const ArrayScreens: string[] = [
     'MusicPlayer',
@@ -18,6 +19,7 @@ export const ArrayScreens: string[] = [
     'Calendars',
     'Chrome',
     'AnimatedListByRemove',
+    'CustomAnimatedList',
 ]
 
 
@@ -32,10 +34,10 @@ const AppNavigator = createStackNavigator(
         Calendars,
         Chrome,
         AnimatedListByRemove,
-
+        CustomAnimatedList
     },
     {
-        initialRouteName: 'AnimatedListByRemove',
+        initialRouteName: 'CustomAnimatedList',
         headerMode: 'none'
     }
 );

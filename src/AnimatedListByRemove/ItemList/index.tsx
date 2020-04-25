@@ -1,9 +1,9 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import styles from './styles'
 import Animated, {Easing, neq, not} from 'react-native-reanimated';
 import {PanGestureHandler, State} from "react-native-gesture-handler";
-import {  moving, panGestureHandler, withSpringTransition} from "react-native-redash";
+import {moving, panGestureHandler, withSpringTransition} from "react-native-redash";
 import {IOffsets, TAB_SIZE} from "../helpers";
 
 const {
@@ -41,9 +41,16 @@ export const withOffset = (
 interface Props {
     item: number,
     offsets: IOffsets[]
+    handleDeleteTab: (index: number) => void
 }
 
-const ItemList: React.FC<Props> = ({item, offsets}) => {
+const ItemList: React.FC<Props> = (
+    {
+        item,
+        offsets,
+        handleDeleteTab,
+    }) => {
+
     const {
         gestureHandler,
         state,
@@ -52,7 +59,9 @@ const ItemList: React.FC<Props> = ({item, offsets}) => {
         translationY,
         velocityY
     } = panGestureHandler();
+
     const currentOffset = offsets[item];
+
     const x = withOffset({
         value: translationX,
         offset: currentOffset.x,
@@ -63,11 +72,15 @@ const ItemList: React.FC<Props> = ({item, offsets}) => {
         offset: currentOffset.y,
         state
     });
+
     const zIndex = cond(eq(state, State.ACTIVE), 200, cond(moving(y), 100, 1));
+
     const offsetX = multiply(round(divide(x, TAB_SIZE)), TAB_SIZE);
     const offsetY = multiply(round(divide(y, TAB_SIZE)), TAB_SIZE);
+
     const translateX = withSpringTransition(x, {}, velocityX, state);
     const translateY = withSpringTransition(y, {}, velocityY, state);
+
     useCode(
         () =>
             block(
@@ -89,21 +102,30 @@ const ItemList: React.FC<Props> = ({item, offsets}) => {
             ),
         [currentOffset.x, currentOffset.y, offsetX, offsetY, offsets, state]
     );
+
     return (
-        <PanGestureHandler {...gestureHandler}>
-            <Animated.View
-                style={[
-                    styles.wrapper,
-                    {transform: [{translateX}, {translateY}]}
-                ]}
-            >
-                <View style={styles.container}>
-                    <Text style={styles.title}>
-                        {item}
+        <Animated.View
+            style={[
+                styles.wrapper,
+                {transform: [{translateX}, {translateY}], zIndex}
+            ]}
+        >
+            <View style={styles.container}>
+                <Text style={styles.title}>
+                    {item}
+                </Text>
+                {/*<TouchableOpacity onPress={() => handleDeleteTab(item)}>*/}
+                {/*    <Text>*/}
+                {/*        Remove Item*/}
+                {/*    </Text>*/}
+                {/*</TouchableOpacity>*/}
+                <TouchableOpacity >
+                    <Text>
+                        send Item to down
                     </Text>
-                </View>
-            </Animated.View>
-        </PanGestureHandler>
+                </TouchableOpacity>
+            </View>
+        </Animated.View>
     )
 };
 
