@@ -7,8 +7,9 @@ interface Styles {
 const styles = (): Styles => ({
     wrapper: {
         flex: 1,
-        backgroundColor: '#111'
-
+        backgroundColor: '#111',
+        paddingTop: 40,
+        position: "relative",
     }
 
 });

@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity, ScrollView, StatusBar, FlatList } from 'react-native'
 import { NavigationParams, NavigationScreenProp, NavigationState, } from "react-navigation";
 import { ArrayScreens } from '../App'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 interface IProps {
@@ -17,14 +18,14 @@ const MainNavigatorScreen: React.FC<IProps> = ({ navigation }) => {
     );
 
     return (
-        <View style={styles.wrapper}>
+        <SafeAreaView style={styles.wrapper}>
             <StatusBar backgroundColor="#000" barStyle="light-content" />
             <FlatList
                 data={ArrayScreens}
                 renderItem={({ item }) => renderItem(item)}
                 keyExtractor={(item) => item}
             />
-        </View>
+        </SafeAreaView>
     )
 }
 

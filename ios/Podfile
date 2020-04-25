@@ -36,7 +36,7 @@ target 'RNLayoutSoltion' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
-  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
+  # pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
 
   target 'RNLayoutSoltionTests' do
     inherit! :search_paths
