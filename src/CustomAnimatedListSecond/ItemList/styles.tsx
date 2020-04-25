@@ -16,6 +16,7 @@ const styles = (): Styles => ({
         height: heightItem,
         borderWidth: 2,
         borderColor: '#FFF',
+        backgroundColor: '#111'
     },
     title: {
         fontSize: 40,

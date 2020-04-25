@@ -13,8 +13,9 @@ const styles = (): Styles => ({
         position: "relative",
     },
     listWrapper: {
+        marginTop: 50,
         flexDirection: "row",
-    }
+    },
 
 });
 

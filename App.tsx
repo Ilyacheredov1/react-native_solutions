@@ -19,7 +19,7 @@ export const ArrayScreens: string[] = [
     'Animations',
     'Calendars',
     'Chrome',
-    'AnimatedListByRemove',
+    // 'AnimatedListByRemove',
     'CustomAnimatedList',
     'CustomAnimatedListSecond',
 ];
@@ -35,7 +35,7 @@ const AppNavigator = createStackNavigator(
         Animations,
         Calendars,
         Chrome,
-        AnimatedListByRemove,
+        // AnimatedListByRemove,
         CustomAnimatedList,
         CustomAnimatedListSecond
     },
