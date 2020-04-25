@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, ScrollView, View } from 'react-native'
+import { SafeAreaView, ScrollView, View, Animated } from 'react-native'
 import styles from './styles'
 import ItemList from "../ItemList";
 import { currentWidth } from "../../utils";
@@ -25,9 +25,12 @@ interface Props {
 
 const CustomAnimatedListSecond: React.FC<Props> = () => {
 
-    const [evenList, setEvenList] = useState<IItem[]>(evenListStart);
     const [oddList, setOddList] = useState<IItem[]>(oddListStart);
+    const [evenList, setEvenList] = useState<IItem[]>(evenListStart);
 
+    const [oddListOffset] = useState<Animated.Value>(new Animated.Value( currentWidth / 2));
+    const [evenListOffset] = useState<Animated.Value>(new Animated.Value(0));
+    const [posColumn, setPosColumn] = useState<'left' | 'right'>("left");
 
     const handleDelete = (index: number) => {
         const handle = (list: IItem[]) => {
@@ -43,18 +46,41 @@ const CustomAnimatedListSecond: React.FC<Props> = () => {
             return listClone
         };
 
-        if (index % 2 !== 0) {
-            setEvenList(handle(evenList))
-        } else {
-            setOddList(handle([...oddList]))
-        }
+        index % 2 !== 0 ? setEvenList(handle(evenList)) : setOddList(handle([...oddList]));
 
+        if (posColumn === "left") {
+            Animated.timing(oddListOffset, {
+                toValue: 0,
+                duration: 350,
+                useNativeDriver: true,
+            }).start();
+            Animated.timing(evenListOffset, {
+                toValue: currentWidth / 2,
+                duration: 350,
+                useNativeDriver: true,
+            }).start();
+            setPosColumn("right");
+        } else {
+            Animated.timing(oddListOffset, {
+                toValue: currentWidth / 2,
+                duration: 350,
+                useNativeDriver: true,
+            }).start();
+            Animated.timing(evenListOffset, {
+                toValue: 0,
+                duration: 350,
+                useNativeDriver: true,
+            }).start();
+            setPosColumn("left");
+        }
     };
 
     return (
         <ScrollView style={styles.wrapper}>
             <SafeAreaView style={styles.listWrapper}>
-                <View>
+                <Animated.View style={{
+                    transform: [{ translateX: oddListOffset }]
+                }}>
                     {
                         oddList.map(({ index, topOffset }) => (
                             <ItemList
@@ -65,9 +91,9 @@ const CustomAnimatedListSecond: React.FC<Props> = () => {
                             />
                         ))
                     }
-                </View>
-                <View style={{
-                    transform: [{ translateX: currentWidth / 2 }]
+                </Animated.View>
+                <Animated.View style={{
+                    transform: [{ translateX: evenListOffset }]
                 }}>
                     {
                         evenList.map(({ index, topOffset }) => (
@@ -79,7 +105,7 @@ const CustomAnimatedListSecond: React.FC<Props> = () => {
                             />
                         ))
                     }
-                </View>
+                </Animated.View>
             </SafeAreaView>
 
         </ScrollView>

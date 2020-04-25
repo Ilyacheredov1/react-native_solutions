@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Animated, Text, TouchableOpacity, View } from 'react-native'
 import styles from './styles'
-import { heightItem } from "../helpers";
-
-const getOffset = (item: number) => {
-    return item * heightItem;
-};
-
 
 interface Props {
     index: number
