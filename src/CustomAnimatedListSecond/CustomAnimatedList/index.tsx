@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Animated, SafeAreaView, ScrollView, View } from 'react-native'
+import { Animated, ScrollView, View } from 'react-native'
 import styles from './styles'
 import ItemList from "../ItemList";
 import { currentWidth } from "../../utils";
@@ -61,20 +61,20 @@ const CustomAnimatedListSecond: React.FC<Props> = () => {
     };
 
     const handleDelete = (index: number) => {
-        const handle = (list: IItem[]) => {
+        const removeItem = (list: IItem[]) => {
             let listClone: IItem[] = [...list];
             listClone = listClone.filter((item: IItem) => item.index !== index);
 
-            listClone = listClone.map((item, index) => {
-                return {
-                    index: item.index,
-                    topOffset: (index + 1) * heightListItem
-                }
-            });
-            return listClone
+            listClone = listClone.map((item, index) => ({
+                index: item.index,
+                topOffset: (index + 1) * heightListItem,
+            }));
+            return listClone;
         };
 
-        index % 2 !== 0 ? setEvenList(handle(evenList)) : setOddList(handle([...oddList]));
+        index % 2 !== 0
+            ? setEvenList(removeItem(evenList))
+            : setOddList(removeItem([...oddList]));
 
         changePosition();
     };
@@ -82,7 +82,7 @@ const CustomAnimatedListSecond: React.FC<Props> = () => {
     return (
         <ScrollView style={styles.wrapper}>
             <View style={styles.listWrapper}>
-                <View style={{height: heightListItem * 13}} />
+                <View style={{ height: heightListItem * 10 }}/>
                 <Animated.View style={{
                     transform: [{ translateX: oddListOffset }]
                 }}>
